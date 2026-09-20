@@ -22,13 +22,6 @@ export const openGraph = {
 		description: null,
 		image: null,
 	},
-	contactme: {
-		pageTitle: "Nao / cantact-me",
-		title: "cantact-me",
-		postTitlePrefix: "Nao / ",
-		description: null,
-		image: null,
-	},
 	contact: {
 		pageTitle: "Nao / contact me",
 		title: "contact Nao",
