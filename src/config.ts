@@ -97,15 +97,15 @@ export const socials = [
 	 	"link": "https://naoyatayumi.itch.io/",
 	 	"icon": "simple-icons/itchdotio",
 	 },
-	// {
-	// 	"text": "osu!",
-	// 	"link": "https://osu.ppy.sh/users/14661163",
-	// 	"icon": "simple-icons/osu",
-	// },
 	{
 		"text": "aefcbusiness@gmail.com",
 		"link": "mailto:aefcbusiness@gmail.com",
 		"icon": "lucide/mail",
 		"copy": "aefcbusiness@gmail.com",
+	},
+	{
+		"text": "Discord",
+		"link": "https://discordapp.com/users/1034561298618400798",
+		"icon": "simple-icons/discord"
 	},
 ];
