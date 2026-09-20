@@ -4,36 +4,36 @@ import type { ThemeRegistration } from "shiki";
 
 export const colors = {
 	dark: {
-		accent: "#84abff",
-		text: "#cad4f5",
-		textOnAccent: "#1e2230",
-		subtext1: "#b8c1e0",
-		subtext0: "#a5a9cb",
-		overlay2: "#9398b7",
-		overlay1: "#8085a2",
-		overlay0: "#6e768d",
-		surface2: "#5b6778",
-		surface1: "#4c7192", // hover
-		surface0: "#376081",
-		background2: "#244158",
-		background1: "#244158", // ???
-		background0: "#172A3A",
+		accent: "#b48aef",       // Vibrant pastel purple for buttons/tags
+        text: "#e5dcf5",         // Bright lavender-tinted white
+        textOnAccent: "#1a1325", // Deepest purple for high contrast on the accent
+        subtext1: "#ccbfe6",
+        subtext0: "#b4a3d6",
+        overlay2: "#9a88c4",
+        overlay1: "#8370b0",
+        overlay0: "#6d5a99",
+        surface2: "#584682",     // Borders and distinct UI elements
+        surface1: "#443469",     // hover
+        surface0: "#332454",     // Card backgrounds
+        background2: "#23183d",
+        background1: "#23183d",  // Secondary backgrounds / vector waves
+        background0: "#150e26",  // Deep dark aubergine base
 	},
 	light: {
-        accent: "#4da1ff",
-        text: "#43586e",
-        textOnAccent: "#172a3a",
-        subtext1: "#59718a",
-        subtext0: "#6b849e",
-        overlay2: "#7e97b0",
-        overlay1: "#8fa5bd",
-        overlay0: "#9fb3c9",
-        surface2: "#aec1d4",
-        surface1: "#bdcede",
-        surface0: "#ccdae8",
-        background2: "#f0f5fa",
-        background1: "#e6edf5",
-        background0: "#dce5ef",
+        accent: "#844ce6",       // Deep, punchy purple for buttons/tags
+        text: "#2a2436",         // Very dark purple-grey for high readability
+        textOnAccent: "#ffffff", // Pure white for high contrast on the accent
+        subtext1: "#554c63",
+        subtext0: "#726880",
+        overlay2: "#8e859c",
+        overlay1: "#a59db3",
+        overlay0: "#beb6cc",
+        surface2: "#e6e1f0",     // Borders and distinct UI elements
+        surface1: "#f2f0f7",     // hover
+        surface0: "#ffffff",     // Card backgrounds (pure white for clean contrast)
+        background2: "#e4ddef",
+        background1: "#ede8f5",  // Secondary backgrounds / vector waves
+        background0: "#f6f3fb",  // Very light lavender-tinted base
     }
 }
 

@@ -169,7 +169,7 @@ const homeEntries = await Promise.all(
 
 	function update() {
 		if (ageText) {
-			const NAO_EPOCH = 1183161600000
+			const NAO_EPOCH = 1214535300000
 			const MILLISECONDS_PER_YEAR = 31556952000;
 			const age = (new Date().getTime() - NAO_EPOCH) / MILLISECONDS_PER_YEAR;
 			ageText.innerText = `${age.toFixed(10)} years old`;

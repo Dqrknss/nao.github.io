@@ -6,7 +6,7 @@ import { shiki as shikiThemes } from "./src/themes";
 
 // https://astro.build/config
 export default defineConfig({
-	site: "https://simon-sj.github.io",
+	site: "https://NaoYatayumi.github.io",
 	output: "static",
 	integrations: [
 		expressiveCode({

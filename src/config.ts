@@ -1,24 +1,24 @@
 export const openGraph = {
-	author: "simon-sj",
+	author: "NaoYatayumi",
 	defaultDescription: "a guy.",
 	defaultImage: "/assets/open-graph.webp",
 	home: {
-		pageTitle: "simon / home",
-		title: "simon's homepage",
+		pageTitle: "Nao / home",
+		title: "Nao's homepage",
 		description: null,
 		image: null,
 	},
 	//blog: {
-	//	pageTitle: "simon / blog",
-	//	title: "nasimono's blog",
-	//	postTitlePrefix: "simon / ",
+	//	pageTitle: "Nao / blog",
+	//	title: "naNaoo's blog",
+	//	postTitlePrefix: "Nao / ",
 	//	description: null,
 	//	image: null,
 	//},
 	projects: {
-		pageTitle: "simon / projects",
-		title: "simon's projects",
-		postTitlePrefix: "simon / ",
+		pageTitle: "Nao / projects",
+		title: "Nao's projects",
+		postTitlePrefix: "Nao / ",
 		description: null,
 		image: null,
 	},
@@ -42,7 +42,7 @@ export const giscus = {
 export const profile = [
 	{
 		"id": "name",
-		"text": "simon",
+		"text": "Nao",
 		"icon": "lucide/user",
 	},
 	{
@@ -70,12 +70,12 @@ export const profile = [
 export const socials = [
 	{
 		"text": "github",
-		"link": "https://github.com/Simon-SJ",
+		"link": "https://github.com/NaoYatayumi",
 		"icon": "simple-icons/github",
 	},
 	{
 		"text": "youtube",
-		"link": "https://www.youtube.com/@simonsssj",
+		"link": "https://www.youtube.com/@Naosssj",
 		"icon": "simple-icons/youtube",
 	},
 	// {
