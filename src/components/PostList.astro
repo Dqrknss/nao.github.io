@@ -10,11 +10,15 @@ interface Props extends HTMLAttributes<"div"> {
 }
 
 const { posts, offset, limit, ...props } = Astro.props;
+
+const sortTime = (date: string | Date) => 
+	date instanceof Date ? date.getTime() : Number.MAX_SAFE_INTEGER;
 ---
+
 <div class="post-list" {...props}>
 	{
 		posts
-			.sort((a, b) => b.date.getTime() - a.date.getTime())
+			.sort((a, b) => sortTime(b.date) - sortTime(a.date))
 			.slice(offset ?? 0, limit && (offset ?? 0 + limit))
 			.map((post) => (
 				<Post {...post} />

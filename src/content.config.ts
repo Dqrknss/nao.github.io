@@ -16,7 +16,7 @@ const projects = defineCollection({
 		z.object({
 			title: z.string(),
 			description: z.string(),
-			releasedAt: z.coerce.date(),
+			releasedAt: z.union([z.coerce.date(), z.literal("unreleased")]),
 			writtenAt: z.coerce.date(),
 			editedAt: z.coerce.date().optional(),
 			image: image(),

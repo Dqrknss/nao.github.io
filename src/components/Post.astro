@@ -5,7 +5,7 @@ export interface Props {
 	title: string,
 	description: string,
 	image: any,
-	date: Date,
+	date: string | Date,
 	url?: string | URL | null,
 	href?: string | URL | null,
 	tags?: string[] | null
@@ -23,7 +23,7 @@ const { title, description, image, date, url, tags } = Astro.props;
 	<div class="post__info">
 		<div class="post__header">
 			<h3>{title}</h3>
-			<span class="post__date">{date.toLocaleDateString()}</span>
+			<span class="post__date">{typeof(date)==="string" ? date : date.toLocaleDateString()}</span>
 		</div>
 		<span>{description}</span>
 	</div>

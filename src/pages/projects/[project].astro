@@ -42,7 +42,7 @@ const { Content, headings } = await render(project);
 			<OverviewList>
 				<li class="project-info-item">
 					<Icon class="text--accent" id="lucide/calendar" />
-					<span>released: {project.data.releasedAt.toLocaleDateString()}</span>
+					<span>{project.data.releasedAt instanceof Date ? "released: " + project.data.releasedAt.toLocaleDateString() : project.data.releasedAt}</span>
 				</li>
 				{
 					project.data.links.map((link) => {
