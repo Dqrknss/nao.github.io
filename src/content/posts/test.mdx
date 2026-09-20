@@ -1,0 +1,117 @@
+---
+title: test
+description: testing
+image: ./say-hello-to-my-blog.png
+writtenAt: 2024-12-29
+unlisted: true
+tags:
+  - test
+---
+import YoutubeCard from "../../components/YoutubeCard.astro";
+
+# code blocks
+```bash
+# npm
+npm create astro@latest -- --template louisescher/spectre
+
+# pnpm
+pnpm create astro@latest --template louisescher/spectre
+
+# yarn
+yarn create astro --template louisescher/spectre
+```
+
+```ts ins={11} title="astro.config.ts"
+import { defineConfig } from 'astro/config';
+
+import expressiveCode from 'astro-expressive-code';
+import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
+import pagefind from 'astro-pagefind';
+import spectre from './package/integration';
+
+// https://astro.build/config
+export default defineConfig({
+  site: 'https://your-site.tld',
+  // ...
+});
+```
+
+```ts {"        Add the info from giscus here:":7-18} title="astro.config.ts"
+export default defineConfig({
+  // ...
+  integrations: [
+    // ...
+    spectre({
+      // ...
+
+      giscus: {
+        repository: '...',
+        repositoryId: '...',
+        category: '...',
+        categoryId: '...',
+        mapping: '...',
+        strict: true | false,
+        reactionsEnabled: true | false,
+        emitMetadata: true | false,
+        lang: '...',
+      }
+    })
+  ]
+});
+```
+
+```mdx
+---
+title: "Getting Started with Spectre" # The title of the post
+description: "Find out how to configure Spectre." # The description of the post
+image: "../assets/spectre.png" # The image to be used as the OG image, referenced with a relative path.
+createdAt: 12-29-2024 # Creation date
+updatedAt: 12-30-2024 # Optional, will be used in the meta tags to tell Google and co. that a post was updated
+draft: false # Optional, can be used to hide a post completely
+tags: # The tags, referencing the ones defined earlier in the `tags.json` file
+  - guide
+---
+```
+
+```ts ins={8} del={1,7} title="astro.config.ts"
+import { spectreDark } from './src/ec-theme';
+// ...
+export default defineConfig({
+  // ...
+  integrations: [
+    expressiveCode({
+      themes: [spectreDark],
+      themes: ['catppuccin-mocha'],
+    }),
+    // ... 
+  ],
+  // ...
+});
+```
+
+# table
+| Variable | Description | Default |
+| --- | --- | --- |
+| `--primary` | The primary color of the page. | `#8c5cf5` |
+| `--primary-rgb` | RGB version of the primary color. | `140, 92, 245` |
+| `--primary-light` | Used for [links](/blog). | `#a277ff` |
+| `--primary-lightest` | Used for [links](/blog). | `#c2a8fd` |
+
+# links
+# h1 [link](/blog)
+## h2 [link](/blog)
+### h3 [link](/blog)
+#### h4 [link](/blog)
+##### h5 [link](/blog)
+###### h6 [link](/blog)
+p [link](/blog)
+
+# embeds
+![](../assets/neon-gyro-showcase.webp)
+
+<YoutubeCard
+    header="video"
+    link="https://www.youtube.com/watch?v=jNQXAC9IVRw"
+    title="video title"
+/>
