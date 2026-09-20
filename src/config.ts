@@ -22,6 +22,27 @@ export const openGraph = {
 		description: null,
 		image: null,
 	},
+	contactme: {
+		pageTitle: "Nao / cantact-me",
+		title: "cantact-me",
+		postTitlePrefix: "Nao / ",
+		description: null,
+		image: null,
+	},
+	contact: {
+		pageTitle: "Nao / contact me",
+		title: "contact Nao",
+		description: "send me a message.",
+		image: null,
+	},
+};
+
+export const contact = {
+	workerUrl: "https://portfolio.alfred-68f.workers.dev/",
+	// limits are kept under discord's embed limits (title 256, description 4096, field 1024)
+	maxSubjectLength: 100,
+	maxMessageLength: 2000,
+	maxReplyLength: 200,
 };
 
 export const giscus = {

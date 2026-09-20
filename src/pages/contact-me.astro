@@ -1,0 +1,319 @@
+---
+import { contact, openGraph, socials } from "../config.ts";
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Icon from "../components/Icon.astro";
+import OverviewList from "../components/OverviewList.astro";
+---
+<Layout
+	pageTitle={openGraph.contact.pageTitle}
+	title={openGraph.contact.title}
+	description={openGraph.contact.description}
+	image={openGraph.contact.image}
+	pagefindIgnore
+>
+	<div class="layout-grid__left" slot="left">
+		<Card title="elsewhere" icon="lucide/at-sign">
+			<OverviewList>{
+				socials.map(social => (
+					<li>
+						<a class="social-link" href={social.link}>
+							<Icon class="text--accent" id={social.icon}/>
+							<span>{social.text}</span>
+						</a>
+					</li>
+				))
+			}</OverviewList>
+		</Card>
+	</div>
+
+	<div class="layout-grid__right" slot="right">
+		<Card title="contact me" icon="lucide/send">
+			<p class="intro">
+				Got a question, an idea, or just want to say hi? Write me something below.
+				Leave a way for me to reach you, otherwise i can't answer!
+			</p>
+
+			<form class="contact-form" id="contact-form" data-endpoint={contact.workerUrl} novalidate>
+				<label class="field">
+					<span class="field__label">subject</span>
+					<input
+						class="field__input"
+						type="text"
+						name="subject"
+						placeholder="what's this about?"
+						maxlength={contact.maxSubjectLength}
+						required
+						autocomplete="off"
+					/>
+				</label>
+
+				<label class="field">
+					<span class="field__label">message</span>
+					<textarea
+						class="field__input field__input--textarea"
+						name="message"
+						placeholder="write your message here..."
+						rows="8"
+						maxlength={contact.maxMessageLength}
+						required
+					></textarea>
+					<span class="field__counter" id="message-counter">0 / {contact.maxMessageLength}</span>
+				</label>
+
+				<label class="field">
+					<span class="field__label">how can i reach you?</span>
+					<input
+						class="field__input"
+						type="text"
+						name="reply"
+						placeholder="email, discord username, etc."
+						maxlength={contact.maxReplyLength}
+						required
+						autocomplete="email"
+					/>
+				</label>
+
+				<!-- honeypot: hidden from people, bots love filling it in -->
+				<div class="honeypot" aria-hidden="true">
+					<label>
+						website
+						<input type="text" name="website" tabindex="-1" autocomplete="off" />
+					</label>
+				</div>
+
+				<div class="form-footer">
+					<button class="submit" type="submit">
+						<Icon class="submit__icon" id="lucide/send" width={16} height={16} />
+						<span class="submit__text">send</span>
+					</button>
+					<p class="status" id="form-status" role="status" aria-live="polite"></p>
+				</div>
+			</form>
+		</Card>
+	</div>
+</Layout>
+
+<style>
+	.intro {
+		margin: 0 0 1.5rem;
+		line-height: 1.6;
+	}
+
+	.social-link {
+		display: flex;
+		flex-direction: row;
+		gap: 0.75rem;
+		align-items: center;
+		color: var(--color-text);
+	}
+
+	.social-link:hover,
+	.social-link:focus-visible {
+		color: var(--color-accent);
+		text-decoration: underline;
+		outline: none;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.field__label {
+		color: var(--color-subtext1);
+		font-size: 0.9em;
+	}
+
+	.field__input {
+		width: 100%;
+		padding: 0.6rem 0.75rem;
+		font: inherit;
+		color: var(--color-text);
+		background-color: var(--color-surface0);
+		border: 1px solid var(--color-surface1);
+		border-radius: var(--value-border-radius-small);
+		outline: none;
+		transition: border-color 0.15s ease;
+	}
+
+	.field__input::placeholder {
+		color: var(--color-subtext0);
+	}
+
+	.field__input:focus-visible {
+		border-color: var(--color-accent);
+	}
+
+	.field__input--invalid {
+		border-color: #f38ba8;
+	}
+
+	.field__input--textarea {
+		resize: vertical;
+		min-height: 10rem;
+		line-height: 1.5;
+	}
+
+	.field__counter {
+		align-self: flex-end;
+		font-size: 0.8em;
+		color: var(--color-subtext0);
+	}
+
+	/* visually hidden but still in the DOM so bots fill it in */
+	.honeypot {
+		position: absolute;
+		left: -9999px;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+	}
+
+	.form-footer {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.submit {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.6rem 0.75rem;
+		font: inherit;
+		font-weight: 700;
+		cursor: pointer;
+		color: var(--color-text);
+		background-color: var(--color-surface0);
+		border: 1px solid var(--color-surface1);
+		border-radius: var(--value-border-radius-small);
+		outline: none;
+		transition: color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+	}
+
+	@media (hover: hover) {
+		.submit:hover:not(:disabled) {
+			color: var(--color-accent);
+			border-color: var(--color-accent);
+		}
+	}
+
+	.submit:hover,
+
+	.status {
+		margin: 0;
+		min-height: 1.5em;
+	}
+
+	.status--success { color: var(--color-accent); }
+	.status--error { color: #f38ba8; }
+</style>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>("#contact-form");
+	const status = document.querySelector<HTMLElement>("#form-status");
+	const counter = document.querySelector<HTMLElement>("#message-counter");
+
+	if (form && status) {
+		const endpoint = form.dataset.endpoint ?? "";
+		const button = form.querySelector<HTMLButtonElement>(".submit")!;
+		const buttonText = button.querySelector<HTMLElement>(".submit__text")!;
+		const messageField = form.elements.namedItem("message") as HTMLTextAreaElement;
+
+		const setStatus = (text: string, kind?: "success" | "error") => {
+			status.textContent = text;
+			status.className = "status" + (kind ? ` status--${kind}` : "");
+		};
+
+		// live character counter for the message
+		messageField.addEventListener("input", () => {
+			if (counter) counter.textContent = `${messageField.value.length} / ${messageField.maxLength}`;
+		});
+
+		// clear the red border as soon as someone starts fixing a field
+		form.addEventListener("input", (e) => {
+			(e.target as HTMLElement).classList.remove("field__input--invalid");
+		});
+
+		form.addEventListener("submit", async (e) => {
+			e.preventDefault();
+
+			const data = new FormData(form);
+
+			// honeypot filled in -> pretend it worked, send nothing
+			if (data.get("website")) {
+				setStatus("message sent! thank you :)", "success");
+				form.reset();
+				return;
+			}
+
+			const subject = String(data.get("subject") ?? "").trim();
+			const message = String(data.get("message") ?? "").trim();
+			const reply = String(data.get("reply") ?? "").trim();
+
+			// simple validation
+			let firstInvalid: HTMLElement | null = null;
+			for (const [name, value] of [["subject", subject], ["message", message], ["reply", reply]]) {
+				const el = form.elements.namedItem(name) as HTMLElement;
+				const invalid = value.length === 0;
+				el.classList.toggle("field__input--invalid", invalid);
+				if (invalid && !firstInvalid) firstInvalid = el;
+			}
+			if (firstInvalid) {
+				setStatus("please fill in every field.", "error");
+				firstInvalid.focus();
+				return;
+			}
+
+			button.disabled = true;
+			buttonText.textContent = "sending...";
+			setStatus("");
+
+			// discord webhook payload. `allowed_mentions: { parse: [] }` stops
+			// anyone from pinging @everyone / roles through the form.
+			const payload = {
+				username: "portfolio contact",
+				allowed_mentions: { parse: [] },
+				embeds: [
+					{
+						title: subject,
+						description: message,
+						color: 0x84abff,
+						fields: [{ name: "reach back at", value: reply }],
+						timestamp: new Date().toISOString(),
+					},
+				],
+			};
+
+			try {
+				const res = await fetch(endpoint, {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify(payload),
+				});
+
+				if (!res.ok) throw new Error(`worker responded with ${res.status}`);
+
+				setStatus("message sent! i'll get back to you soon :)", "success");
+				form.reset();
+				if (counter) counter.textContent = `0 / ${messageField.maxLength}`;
+			} catch (err) {
+				console.error("contact form failed:", err);
+				setStatus("something went wrong. try again, or reach me through one of the links on the left.", "error");
+			} finally {
+				button.disabled = false;
+				buttonText.textContent = "send";
+			}
+		});
+	}
+</script>
