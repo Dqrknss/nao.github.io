@@ -66,7 +66,7 @@ export const profile = [
 	},
 	{
 		"id": "age",
-		"text": "?? years old",
+		"text": "?? Years old",
 		"icon": "lucide/cake",
 	},
 	{
