@@ -20,6 +20,7 @@ const projects = defineCollection({
 			writtenAt: z.coerce.date(),
 			editedAt: z.coerce.date().optional(),
 			image: image(),
+			status: z.enum(["current", "former"]).default("former"),
 			links: z.array(
 				z.object({
 					text: z.string(),
