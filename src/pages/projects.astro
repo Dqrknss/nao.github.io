@@ -15,7 +15,7 @@ const projects = await getCollection("projects", (post) => post.data.unlisted !=
 	pagefindIgnore
 >
 	<div class="layout-grid__left" slot="left">
-		<Card title="stats" icon="lucide/chart-column">
+		<Card title="Stats" icon="lucide/chart-column">
 			<div class="stat-list">
 				<div class="stat">
 					<h3 class="stat__number">{projects.length}</h3>
@@ -25,11 +25,11 @@ const projects = await getCollection("projects", (post) => post.data.unlisted !=
 		</Card>
 	</div>
 	<div class="layout-grid__right" slot="right">
-		<Card title="projects" icon="lucide/folder-git" id="posts-card">
+		<Card title="Projects" icon="lucide/folder-git" id="posts-card">
 			<PostList
 				posts={
 					projects.map((post) => ({
-						url: `/projects/${post.id}`,
+						url: `/Projects/${post.id}`,
 						title: post.data.title,
 						description: post.data.description,
 						date: post.data.releasedAt,
