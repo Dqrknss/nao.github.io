@@ -100,7 +100,7 @@ export const socials = [
 	 {
 		"text": "Business information :",
 		"link": "https://naoyatayumi.github.io/",
-		"icon": "simple-icons/blackmagicdesign"
+		"icon": "simple-icons/diaspora"
 	 },
 	{
 		"text": "aefcbusiness@gmail.com",
