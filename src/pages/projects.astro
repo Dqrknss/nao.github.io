@@ -11,7 +11,7 @@ const currentProjects = allProjects.filter((post) => post.data.status === "curre
 const formerProjects = allProjects.filter((post) => post.data.status === "former");
 
 const toPostProps = (post: typeof allProjects[number]) => ({
-	url: `/Projects/${post.id}`,
+	url: `/projects/${post.id}`,
 	title: post.data.title,
 	description: post.data.description,
 	date: post.data.releasedAt,
