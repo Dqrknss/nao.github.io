@@ -31,7 +31,22 @@ const projects = defineCollection({
 		}),
 });
 
+const posts = defineCollection({
+	loader: glob({ base: "src/content/posts", pattern: "**/*.{md,mdx}" }),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			description: z.string(),
+			writtenAt: z.coerce.date(),
+			editedAt: z.coerce.date().optional(),
+			image: image(),
+			tags: z.array(z.string()),
+			unlisted: z.boolean().optional().default(false),
+		}),
+});
+
 export const collections = {
 	home,
 	projects,
+	posts,
 };
