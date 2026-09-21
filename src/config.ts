@@ -3,7 +3,7 @@ export const openGraph = {
 	defaultDescription: "Totally not a cat...",
 	defaultImage: "/assets/open-graph.webp",
 	home: {
-		pageTitle: "Nao / home",
+		pageTitle: "Nao / Home",
 		title: "Nao's homepage",
 		description: null,
 		image: null,
@@ -16,14 +16,14 @@ export const openGraph = {
 	//	image: null,
 	//},
 	projects: {
-		pageTitle: "Nao / projects",
+		pageTitle: "Nao / Projects",
 		title: "Nao's projects",
 		postTitlePrefix: "Nao / ",
 		description: null,
 		image: null,
 	},
 	contact: {
-		pageTitle: "Nao / contact me",
+		pageTitle: "Nao / Contact me",
 		title: "contact Nao",
 		description: "send me a message.",
 		image: null,
