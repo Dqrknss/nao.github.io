@@ -71,7 +71,7 @@ export const profile = [
 	},
 	{
 		"id": "language",
-		"text": "English, Danish",
+		"text": "Danish, English",
 		"icon": "lucide/languages",
 	},
 	{
@@ -96,6 +96,11 @@ export const socials = [
 	 	"text": "Itch.io",
 	 	"link": "https://naoyatayumi.itch.io/",
 	 	"icon": "simple-icons/itchdotio",
+	 },
+	 {
+		"text": "Business information :",
+		"link": "https://naoyatayumi.github.io/",
+		"icon": "simple-icons/blackmagicdesign"
 	 },
 	{
 		"text": "aefcbusiness@gmail.com",
