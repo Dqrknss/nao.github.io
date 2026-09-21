@@ -15,8 +15,8 @@ const path = Astro.url.pathname;
         </div>
         <div class="nav__button-list">
             <a class="nav-button" href="/projects" class:list={{["nav-button--active"]: path.startsWith("/projects")}}>/projects</a>
-            <a class="nav-button" href="/contact-me" class:list={{["nav-button--active"]: path.startsWith("/contact-me")}}>/contact-me</a>
 			<a class="nav-button" href="/blog" class:list={{["nav-button--active"]: path.startsWith("/blog")}}>/blog</a>
+            <a class="nav-button" href="/contact-me" class:list={{["nav-button--active"]: path.startsWith("/contact-me")}}>/contact-me</a>
             <div class="nav-search-bar">
                 <Icon class="nav-search-bar__icon" id="lucide/search"/>
                 <input class="nav-search-bar__input" type="text" placeholder="search"/>
