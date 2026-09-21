@@ -82,18 +82,23 @@ export const profile = [
 ];
 
 export const socials = [
+	 {
+		"text": "Socials :",
+		"link": "https://naoyatayumi.github.io/",
+		"icon": "simple-icons/diaspora"
+	 },
 	{
-		"text": "Github",
+		"text": "- Github",
 		"link": "https://github.com/NaoYatayumi",
 		"icon": "simple-icons/github",
 	},
 	{
-		"text": "Youtube",
+		"text": "- Youtube",
 		"link": "https://www.youtube.com/@NaoYatayumi",
 		"icon": "simple-icons/youtube",
 	},
 	{
-	 	"text": "Itch.io",
+	 	"text": "- Itch.io",
 	 	"link": "https://naoyatayumi.itch.io/",
 	 	"icon": "simple-icons/itchdotio",
 	 },
@@ -103,13 +108,13 @@ export const socials = [
 		"icon": "simple-icons/diaspora"
 	 },
 	{
-		"text": "aefcbusiness@gmail.com",
+		"text": "- aefcbusiness@gmail.com",
 		"link": "mailto:aefcbusiness@gmail.com",
 		"icon": "lucide/mail",
 		"copy": "aefcbusiness@gmail.com",
 	},
 	{
-		"text": "Discord",
+		"text": "- Discord",
 		"link": "https://discordapp.com/users/1034561298618400798",
 		"icon": "simple-icons/discord"
 	},
