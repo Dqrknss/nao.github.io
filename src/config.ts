@@ -1,6 +1,6 @@
 export const openGraph = {
 	author: "NaoYatayumi",
-	defaultDescription: "a guy.",
+	defaultDescription: "Totally not a cat...",
 	defaultImage: "/assets/open-graph.webp",
 	home: {
 		pageTitle: "Nao / home",
