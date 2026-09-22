@@ -98,6 +98,20 @@ const homeEntries = await Promise.all(
 				}
 			/>
 		</Card>
+			<Card title="Blog" icon="lucide/folder-git" href="/blog">
+			<PostList
+				limit={1}
+				posts={
+					posts.map((post) => ({
+						url: `/blog/${post.id}`,
+						title: post.data.title,
+						description: post.data.description,
+						date: post.data.writtenAt,
+						image: post.data.image,
+					}))
+				}
+			/>
+		</Card>
 		<Card title="Library of books!" icon="lucide/folder-git" href="/library">
 			<PostList
 				limit={2}
