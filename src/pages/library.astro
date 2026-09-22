@@ -36,13 +36,14 @@ const taglibraryCounts = library.reduce((state, library) => {
 	</div>
 	<div class="layout-grid__right" slot="right">
 		<Card title={`library (${library.length})`} icon="lucide/rss" id="library-card">
-			<libraryList
-				library={
+			<PostList
+				posts={
 					library.map((library) => ({
 						url: `/library/${library.id}`,
 						tags: library.data.tags,
 						title: library.data.title,
 						description: library.data.description,
+						date: library.data.writtenAt,
 						image: library.data.image,
 					}))
 				}
@@ -53,7 +54,7 @@ const taglibraryCounts = library.reduce((state, library) => {
 
 <script>
 	const tags = document.querySelectorAll<HTMLElement>('.tag-list .tag');
-	const library = document.querySelectorAll<HTMLElement>('#library-card .library');
+	const library = document.querySelectorAll<HTMLElement>('#library-card .post');
 	const libraryCardTitle = document.querySelector<HTMLElement>('#library-card .card__title');
 	const url = new URL(window.location.href);
 	const initialTags = url.searchParams.get('tags')?.split(',').filter((tag) => tag.length > 0) || [];
