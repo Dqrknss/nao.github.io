@@ -1,3 +1,5 @@
+import type Library from "./pages/library.astro";
+
 export const openGraph = {
 	author: "NaoYatayumi",
 	defaultDescription: "Totally not a cat...",
@@ -11,6 +13,13 @@ export const openGraph = {
 	blog: {
 		pageTitle: "Nao / blog",
 		title: "Nao's blog",
+		postTitlePrefix: "Nao / ",
+		description: null,
+		image: null,
+	},
+	library: {
+		pageTitle: "Nao / Library",
+		title: "Nao's library",
 		postTitlePrefix: "Nao / ",
 		description: null,
 		image: null,

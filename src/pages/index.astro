@@ -12,6 +12,7 @@ import OverviewList from "../components/OverviewList.astro";
 const home = await getCollection("home");
 const posts = await getCollection("posts", post => !post.data.unlisted);
 const projects = await getCollection("projects", post => !post.data.unlisted);
+const library = await getCollection("library", post => !post.data.unlisted);
 
 const homeEntries = await Promise.all(
 	home.map(async (entry) => ({
@@ -92,6 +93,20 @@ const homeEntries = await Promise.all(
 						title: post.data.title,
 						description: post.data.description,
 						date: post.data.releasedAt,
+						image: post.data.image,
+					}))
+				}
+			/>
+		</Card>
+		<Card title="Library of books!" icon="lucide/folder-git" href="/library">
+			<PostList
+				limit={2}
+				posts={
+					library.map((post) => ({
+						url: `/library/${post.id}`,
+						title: post.data.title,
+						description: post.data.description,
+						date: post.data.writtenAt,
 						image: post.data.image,
 					}))
 				}

@@ -1,0 +1,97 @@
+---
+import type { GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, render } from "astro:content";
+import { openGraph, giscus } from "../../config.ts";
+import Card from "../../components/Card.astro";
+import TableOfContents from "../../components/TableOfContents.astro";
+import TagList from "../../components/TagList.astro";
+import Layout from "../../layouts/Layout.astro";
+import Article from "../../components/Article.astro";
+import Giscus from "../../components/Giscus.astro";
+import BlockLink from "../../components/BlockLink.astro";
+
+export const getStaticPaths = (async () => {
+	const library = await getCollection("library");
+	return library.map(library => ({
+		params: { library: library.id },
+		props: { library } }
+	));
+}) satisfies GetStaticPaths;
+
+interface Props {
+	library: CollectionEntry<"library">;
+}
+
+const { library } = Astro.props;
+const { Content, headings } = await render(library);
+---
+<Layout
+	pageTitle={openGraph.library.postTitlePrefix + library.data.title}
+	title={library.data.title}
+	description={library.data.description}
+	image={library.data.image}
+	article={{
+		writtenAt: library.data.writtenAt,
+		editedAt: library.data.editedAt,
+	}}
+	pagefindIgnore={library.data.unlisted}
+>
+	<div class="layout-grid__left" slot="left">
+		<Card title="tags" icon="lucide/tags" href="/library">
+			<TagList
+				tags={library.data.tags.map((tag) => ({
+					tag: tag,
+					href: `/library?tags=${tag}`
+				}))}
+			/>
+			{library.data.tags.length === 0 && <p>no tags</p>}
+		</Card>
+		<Card class="contents-card" title="contents" icon="lucide/table-of-contents">
+			<TableOfContents title={library.data.title} headings={headings}/>
+		</Card>
+	</div>
+	<article class="layout-grid__right" slot="right">
+		<Card>
+			<Article
+				title={library.data.title}
+				description={library.data.description}
+				writtenAt={library.data.writtenAt}
+				editedAt={library.data.editedAt}
+				image={library.data.image}
+                unlisted={library.data.unlisted}
+				body={library.body}
+			>
+				<Content />
+			</Article>
+		</Card>
+		<Card>
+			<BlockLink href="/library">← back to /library</BlockLink>
+		</Card>
+		{giscus.enabled && (
+			<Card title="comments" icon="lucide/messages-square">
+				<Giscus
+					class="comments"
+					term={library.id}
+				/>
+			</Card>
+		)}
+	</article>
+</Layout>
+
+<style>
+	.contents-card {
+		position: sticky;
+		top: 1.5rem;
+	}
+
+	.comments * {
+		border-color: var(--color-surface1) !important;
+	}
+
+	@media screen and (max-width: 640px) {
+		article {
+			gap: 1rem;
+		}
+	}
+</style>
